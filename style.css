@@ -1,0 +1,162 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.gallery{
+    text-align: center;
+}
+
+.gallery-title{
+    text-align: center;
+    font-size: 70px;
+}
+.gallery-title{
+    /* border: 2px solid black; */
+    position: relative;
+    margin: 0px 0;
+    background-color: rgb(249, 0, 154);
+    height: 120px;
+    width: 1069px;
+    justify-content: center;
+    left: 50%;
+    transform: translateX(-50%);
+    background-position: 50%;
+    background-position: center;
+    background-size: cover;
+    font-weight: 900;
+    font-family: sans-serif;
+}
+
+
+
+.gallery-menu{
+    margin: 40px 350px;
+    width: 40%;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.gallery-menu{
+    justify-content: space-between;
+    gap: 30px;
+}
+.gallery-imagess{
+    margin: -10px 260px ;
+    /* border: 1px solid black; */
+    /* margin: 0 auto; */
+    width: 1000px;
+    height: 180px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 100px;
+}
+.gallery-menu label{
+    border: 3px solid rgb(9, 25, 255);
+    padding: 8px 40px ;
+    cursor: pointer;
+    border-radius: 5px;
+    color: rgb(9, 25, 255);
+    font-weight: 900;
+
+}
+
+img{
+    width: 100%;
+    height: 100%;
+
+}
+
+.image{
+    height: 170px;
+    position: relative;
+}
+.gallery-content{
+    width: 67%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+}
+
+#menu1:checked ~ .gallery .gallery-content .image{
+    opacity: 1;
+}
+
+#menu2:checked ~ .gallery .gallery-content .compyuter{
+    opacity: 1;
+}
+
+#menu2:checked ~ .gallery .gallery-content .phone,
+#menu2:checked ~ .gallery .gallery-content .nature{
+    opacity: 0;
+    position: absolute;
+}
+
+#menu3:checked ~ .gallery .gallery-content .phone{
+    opacity: 1;
+}
+
+#menu3:checked ~ .gallery .gallery-content .compyuter,
+#menu3:checked ~ .gallery .gallery-content .nature{
+    opacity: 0;
+    position: absolute;
+}
+
+#menu4:checked ~ .gallery .gallery-content .nature{
+    opacity: 1;
+}
+
+#menu4:checked ~ .gallery .gallery-content .phone,
+#menu4:checked ~ .gallery .gallery-content .compyuter {
+    opacity: 0;
+    position: absolute;
+}
+
+.image::before{
+    content: "Gallery";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50%;
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: white;
+    margin-top: -100px;
+    opacity: 0;
+    transition: 0.5s;
+    z-index: 1;
+}
+.image:hover::before{
+    opacity: 1;
+    margin-top: 0;
+}
+
+.image::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(76, 75, 75, 0.5);
+    opacity: 0;
+    transition: 0.5s;
+    transform: scaleY(0);
+    transform-origin: bottom;
+}
+
+.image:hover:after{
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+input{
+    display: none;
+}
